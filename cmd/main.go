@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jackdoe/go-scary"
+	scary "github.com/jackdoe/go-scary/pkg"
 )
 
 func main() {
