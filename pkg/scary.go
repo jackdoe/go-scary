@@ -25,7 +25,7 @@ type Settings struct {
 var Basic = []Settings{
 	{Runes: Above, Min: 5, Max: 10},
 	{Runes: Below, Min: 5, Max: 10},
-	{Runes: Overlay, Min: 0, Max: 3},
+	{Runes: Overlay, Min: 0, Max: 1},
 }
 
 func Scary(text string) string {
