@@ -4,10 +4,16 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 
 	scary "github.com/jackdoe/go-scary/pkg"
 )
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 func max(a, b *int) int {
 	if *a > *b {
