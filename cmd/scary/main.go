@@ -9,6 +9,13 @@ import (
 	scary "github.com/jackdoe/go-scary/pkg"
 )
 
+func max(a, b *int) int {
+	if *a > *b {
+		return *a
+	}
+	return *b
+}
+
 func main() {
 	overlayMax := flag.Int("overlay-max", 0, "overlay from min to N")
 	overlayMin := flag.Int("overlay-min", 0, "overlay from N to max")
@@ -20,9 +27,9 @@ func main() {
 	flag.Parse()
 
 	settings := []scary.Settings{
-		{Runes: scary.Above, Min: *aboveMin, Max: *aboveMax},
-		{Runes: scary.Below, Min: *belowMin, Max: *belowMax},
-		{Runes: scary.Overlay, Min: *overlayMin, Max: *overlayMax},
+		{Runes: scary.Above, Min: *aboveMin, Max: max(aboveMax, aboveMin)},
+		{Runes: scary.Below, Min: *belowMin, Max: max(belowMax, belowMin)},
+		{Runes: scary.Overlay, Min: *overlayMin, Max: max(overlayMax, overlayMin)},
 	}
 
 	scanner := bufio.NewScanner(os.Stdin)
